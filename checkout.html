@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<title>Commande — Maison Tracké</title>
+<meta name="description" content="Site e-commerce factice d'entraînement analytics. Rien n'est à vendre, tout est à tracker.">
+<!-- 0. Consent Mode v2 : défauts + choix stocké (lu dans le cookie tarteaucitron) -->
+<script src="assets/consent-default.js"></script>
+<!-- 0b. CMP tarteaucitron (auto-hébergée) : catégories mappées 1:1 sur Consent Mode, voir assets/cmp.js -->
+<script src="tarteaucitron/tarteaucitron.min.js"></script>
+<!-- 1. dataLayer contextuel SANS event (user / product / context), poussé avant GTM -->
+<script src="assets/products.js"></script>
+<script src="assets/context.js"></script>
+<script src="assets/tracking.js"></script>
+<!-- 2. Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+<!-- End Google Tag Manager -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="checkout">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="site">
+<div class="bar">Livraison offerte dès 50 € d'achats <b>fictifs</b> · <span class="mono">env: training</span></div>
+<header class="top">
+  <div class="in">
+    <a class="brand" href="index.html"><span class="dot"></span>Maison Tracké</a>
+    <button class="burger" type="button" aria-label="Menu" aria-expanded="false">Menu</button>
+    <nav aria-label="Pages">
+      <ul>
+        <li><a href="collection.html" >Boutique</a></li>
+        <li><a href="collection.html?cat=Textile">Textile</a></li>
+        <li><a href="collection.html?cat=Mugs">Mugs</a></li>
+        <li><a href="rdv.html" >Prendre rendez-vous</a></li>
+        <li><a href="contact.html" >Contact</a></li>
+        <li><a href="labo.html" >Labo</a></li>
+      </ul>
+    </nav>
+    <div class="right">
+      <form class="search" role="search"><input type="search" name="q" placeholder="Chercher un objet inutile" aria-label="Recherche"><button type="submit" aria-label="Rechercher">⌕</button></form>
+      <a class="cart-link" id="account-link" href="account.html" >Compte</a>
+      <a class="cart-link" href="cart.html" >Panier <span class="n">0</span></a>
+    </div>
+  </div>
+</header>
+<main>
+
+<section class="section">
+  <div class="in">
+    <span class="eyebrow">Ceci est un tunnel de commande</span>
+    <div class="section-head"><div><h2>Commander</h2><p><span class="fake">Aucun paiement réel</span> &nbsp;Trois étapes, trois événements : <code class="mono">add_shipping_info</code>, <code class="mono">add_payment_info</code>, puis <code class="mono">purchase</code> sur la confirmation.</p></div></div>
+    <div class="steps"><span>1. Coordonnées</span><span>2. Paiement</span><span>3. Validation</span></div>
+    <div class="checkout">
+      <div>
+        <form class="panel" data-step="1" id="f1">
+          <h3>Coordonnées &amp; livraison</h3>
+          <div class="two"><div class="f"><label>Prénom</label><input name="first" required autocomplete="off" placeholder="Ada"></div><div class="f"><label>Nom</label><input name="last" required autocomplete="off" placeholder="Lovelace"></div></div>
+          <div class="f"><label>Email</label><input type="email" name="email" required placeholder="ada@exemple.fr"></div>
+          <div class="f"><label>Adresse (fictive)</label><input name="address" required placeholder="1 rue du dataLayer, 75000 Paris"></div>
+          <div class="f"><label>Mode de livraison</label><div class="choice">
+            <label id="ship-std"><input type="radio" name="ship" value="standard" checked>Standard · 3-5 jours<span class="p">4,90 €</span></label>
+            <label><input type="radio" name="ship" value="express">Express · demain (dans un monde idéal)<span class="p">9,90 €</span></label>
+            <label><input type="radio" name="ship" value="pickup">Retrait en boutique (qui n'existe pas)<span class="p">Offert</span></label>
+          </div></div>
+          <button class="btn primary lg block" type="submit">Continuer vers le paiement</button>
+        </form>
+        <form class="panel" data-step="2" id="f2" style="display:none">
+          <h3>Paiement <span class="fake" style="margin-left:8px">simulé</span></h3>
+          <div class="f"><label>Moyen de paiement</label><div class="choice">
+            <label><input type="radio" name="pay" value="card" checked>Carte bancaire (fausse)</label>
+            <label><input type="radio" name="pay" value="paypal">PayPal (encore plus faux)</label>
+            <label><input type="radio" name="pay" value="transfer">Virement (en monnaie de singe)</label>
+          </div></div>
+          <div class="f"><label>Numéro de carte</label><input name="card" value="4242 4242 4242 4242" readonly><span class="hint">Numéro de test figé : rien n'est saisi, rien n'est envoyé.</span></div>
+          <div class="cta"><button class="btn back" type="button" data-to="1">Retour</button><button class="btn primary lg" type="submit" style="flex:1">Vérifier la commande</button></div>
+        </form>
+        <form class="panel" data-step="3" id="f3" style="display:none">
+          <h3>Tout est faux, tout est prêt.</h3>
+          <p>En cliquant ci-dessous, vous ne payez rien, vous ne recevez rien, et un <code class="mono">purchase</code> part sur la page suivante avec un <code class="mono">transaction_id</code> unique.</p>
+          <div class="cta"><button class="btn back" type="button" data-to="2">Retour</button><button class="btn accent lg" type="submit" style="flex:1">Acheter, acheter (pour de faux)</button></div>
+        </form>
+      </div>
+      <aside class="summary">
+        <h3>Votre commande</h3>
+        <div id="r-items"></div>
+        <div class="row" style="border-top:1px solid var(--line);margin-top:8px;padding-top:12px"><span>Sous-total</span><span id="r-sub"></span></div>
+        <div class="row"><span>Remise</span><span id="r-disc"></span></div>
+        <div class="row"><span>Livraison</span><span id="r-ship"></span></div>
+        <div class="row total"><span>Total</span><span id="r-total"></span></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="foot">
+  <div class="in">
+    <div>
+      <a class="brand" href="index.html"><span class="dot"></span>Maison Tracké</a>
+      <p style="font-size:13px;max-width:34ch">Des objets inutiles, des événements impeccables. Site d'entraînement pour équipes analytics — aucune commande n'est réelle.</p>
+    </div>
+    <div><h4>Boutique</h4><ul>
+      <li><a href="collection.html">Tout le catalogue</a></li>
+      <li><a href="collection.html?cat=Textile">Textile</a></li>
+      <li><a href="collection.html?cat=Mugs">Mugs</a></li>
+      <li><a href="collection.html?cat=Papeterie">Papeterie</a></li>
+      <li><a href="collection.html?cat=Bureau">Bureau</a></li>
+    </ul></div>
+    <div><h4>Aide</h4><ul>
+      <li><a href="rdv.html">Prendre rendez-vous</a></li>
+      <li><a href="contact.html">Nous écrire</a></li>
+      <li><a href="labo.html">Labo &amp; scénarios</a></li>
+      <li><a href="account.html">Mon compte (fictif)</a></li>
+      <li><a href="product.html?sku=INCONNU">Page produit 404</a></li>
+    </ul></div>
+    <div><h4>Newsletter</h4>
+      <p style="font-size:13px;margin:0">Recevez zéro email. Mais déclenchez <code class="mono">newsletter_signup</code>.</p>
+      <form class="news"><input type="email" placeholder="vous@exemple.fr" required aria-label="Email"><button class="btn primary" type="submit" style="padding:8px 14px;font-size:13px">OK</button></form>
+    </div>
+    <div class="copy"><span>© 2026 Maison Tracké · <button type="button" class="cookie-link" onclick="openCookieSettings()">Gérer les cookies</button></span><span>Site statique · GitHub Pages · <span class="mono">GTM GTM-XXXXXXX</span></span></div>
+  </div>
+</footer>
+</div>
+<script src="assets/cmp.js"></script>
+<script src="assets/shop.js"></script>
+
+</body>
+</html>

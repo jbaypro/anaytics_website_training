@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<title>Merci — Maison Tracké</title>
+<meta name="description" content="Site e-commerce factice d'entraînement analytics. Rien n'est à vendre, tout est à tracker.">
+<!-- 0. Consent Mode v2 : défauts + choix stocké (lu dans le cookie tarteaucitron) -->
+<script src="assets/consent-default.js"></script>
+<!-- 0b. CMP tarteaucitron (auto-hébergée) : catégories mappées 1:1 sur Consent Mode, voir assets/cmp.js -->
+<script src="tarteaucitron/tarteaucitron.min.js"></script>
+<!-- 1. dataLayer contextuel SANS event (user / product / context), poussé avant GTM -->
+<script src="assets/products.js"></script>
+<script src="assets/context.js"></script>
+<script src="assets/tracking.js"></script>
+<!-- 2. Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+<!-- End Google Tag Manager -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="merci">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<div class="site">
+<div class="bar">Livraison offerte dès 50 € d'achats <b>fictifs</b> · <span class="mono">env: training</span></div>
+<header class="top">
+  <div class="in">
+    <a class="brand" href="index.html"><span class="dot"></span>Maison Tracké</a>
+    <button class="burger" type="button" aria-label="Menu" aria-expanded="false">Menu</button>
+    <nav aria-label="Pages">
+      <ul>
+        <li><a href="collection.html" >Boutique</a></li>
+        <li><a href="collection.html?cat=Textile">Textile</a></li>
+        <li><a href="collection.html?cat=Mugs">Mugs</a></li>
+        <li><a href="rdv.html" >Prendre rendez-vous</a></li>
+        <li><a href="contact.html" >Contact</a></li>
+        <li><a href="labo.html" >Labo</a></li>
+      </ul>
+    </nav>
+    <div class="right">
+      <form class="search" role="search"><input type="search" name="q" placeholder="Chercher un objet inutile" aria-label="Recherche"><button type="submit" aria-label="Rechercher">⌕</button></form>
+      <a class="cart-link" id="account-link" href="account.html" >Compte</a>
+      <a class="cart-link" href="cart.html" >Panier <span class="n">0</span></a>
+    </div>
+  </div>
+</header>
+<main>
+
+<section class="section">
+  <div class="in merci">
+    <div class="big">✓</div>
+    <h1 id="merci-title" style="font-size:clamp(32px,4.5vw,56px)">Ceci est une page de remerciement.</h1>
+    <p id="merci-text" style="margin:16px auto 8px"></p>
+    <p class="mono muted">lead_id : <span id="lead-id">—</span></p>
+    <div class="cta" style="justify-content:center;margin-top:20px"><a class="btn primary" href="index.html">Retour à l'accueil</a><a class="btn" href="labo.html">Voir les scénarios du Labo</a></div>
+  </div>
+</section>
+
+</main>
+<footer class="foot">
+  <div class="in">
+    <div>
+      <a class="brand" href="index.html"><span class="dot"></span>Maison Tracké</a>
+      <p style="font-size:13px;max-width:34ch">Des objets inutiles, des événements impeccables. Site d'entraînement pour équipes analytics — aucune commande n'est réelle.</p>
+    </div>
+    <div><h4>Boutique</h4><ul>
+      <li><a href="collection.html">Tout le catalogue</a></li>
+      <li><a href="collection.html?cat=Textile">Textile</a></li>
+      <li><a href="collection.html?cat=Mugs">Mugs</a></li>
+      <li><a href="collection.html?cat=Papeterie">Papeterie</a></li>
+      <li><a href="collection.html?cat=Bureau">Bureau</a></li>
+    </ul></div>
+    <div><h4>Aide</h4><ul>
+      <li><a href="rdv.html">Prendre rendez-vous</a></li>
+      <li><a href="contact.html">Nous écrire</a></li>
+      <li><a href="labo.html">Labo &amp; scénarios</a></li>
+      <li><a href="account.html">Mon compte (fictif)</a></li>
+      <li><a href="product.html?sku=INCONNU">Page produit 404</a></li>
+    </ul></div>
+    <div><h4>Newsletter</h4>
+      <p style="font-size:13px;margin:0">Recevez zéro email. Mais déclenchez <code class="mono">newsletter_signup</code>.</p>
+      <form class="news"><input type="email" placeholder="vous@exemple.fr" required aria-label="Email"><button class="btn primary" type="submit" style="padding:8px 14px;font-size:13px">OK</button></form>
+    </div>
+    <div class="copy"><span>© 2026 Maison Tracké · <button type="button" class="cookie-link" onclick="openCookieSettings()">Gérer les cookies</button></span><span>Site statique · GitHub Pages · <span class="mono">GTM GTM-XXXXXXX</span></span></div>
+  </div>
+</footer>
+</div>
+<script src="assets/cmp.js"></script>
+<script src="assets/shop.js"></script>
+
+</body>
+</html>
